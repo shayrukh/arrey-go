@@ -1,10 +1,107 @@
+
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Arrey Go! Leaderboard</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arrey Go! Global Leaderboard | ShayRukh</title>
+<meta name="theme-color" content="#10152b">
+<style>
+*{box-sizing:border-box}
+body{
+ margin:0;background:#0b1020;color:#fff;
+ font-family:Arial,sans-serif;min-height:100vh;
+}
+header{
+ padding:22px 16px;text-align:center;
+ background:linear-gradient(135deg,#182957,#4825a6);
+}
+.logo{font-size:30px;font-weight:900;color:#ffd84d}
+header p{color:#d9ddff;margin:8px 0 0}
+.container{max-width:900px;margin:auto;padding:20px 14px}
+.hero{text-align:center;padding:25px 10px}
+.hero h1{font-size:29px;margin:0 0 10px}
+.hero p{color:#aeb8d7;line-height:1.5}
+.status{
+ display:inline-block;padding:9px 14px;border-radius:30px;
+ background:#202b48;color:#ffd76a;font-size:13px;
+ margin-top:12px
+}
+.search{
+ width:100%;padding:15px;border:1px solid #34415f;
+ border-radius:12px;background:#151e35;color:white;
+ font-size:16px;margin:18px 0
+}
+.panel{
+ background:#151e35;border:1px solid #283653;
+ border-radius:16px;overflow:hidden
+}
+.panel-title{padding:18px;font-size:19px;font-weight:bold}
+.table-wrap{overflow-x:auto}
+table{width:100%;border-collapse:collapse;min-width:400px}
+th,td{padding:15px 12px;text-align:left;border-top:1px solid #283653}
+th{color:#9eaccb;font-size:12px;text-transform:uppercase}
+td{font-size:14px}
+.rank{font-weight:bold;color:#ffd65a}
+.empty{text-align:center;padding:35px 15px;color:#aeb8d7;line-height:1.7}
+footer{text-align:center;color:#8491b1;padding:30px 12px;font-size:13px}
+footer strong{color:#fff}
+</style>
 </head>
 <body>
-  <h1>Arrey Go! Global Leaderboard</h1>
-  <p>Coming Soon</p>
+
+<header>
+ <div class="logo">ARREY GO!</div>
+ <p>by ShayRukh</p>
+</header>
+
+<main class="container">
+ <section class="hero">
+  <h1>🌍 Global Leaderboard</h1>
+  <p>Compete with players around the world.<br>
+  Reach higher levels and claim your rank!</p>
+  <div class="status">🏆 Worldwide Rankings</div>
+ </section>
+
+ <input id="search" class="search"
+ type="search" placeholder="🔎 Search player username...">
+
+ <section class="panel">
+  <div class="panel-title">🏆 Top Players</div>
+  <div class="table-wrap">
+   <table>
+    <thead>
+     <tr>
+      <th>Rank</th>
+      <th>Player</th>
+      <th>Highest Level</th>
+     </tr>
+    </thead>
+    <tbody id="players">
+     <tr><td colspan="3" class="empty">
+      Leaderboard data will appear here once the game is connected to Firebase.
+     </td></tr>
+    </tbody>
+   </table>
+  </div>
+ </section>
+</main>
+
+<footer>
+ <strong>ARREY GO!</strong><br>
+ A game by ShayRukh Digital Labs<br><br>
+ © 2026 ShayRukh. All rights reserved.
+</footer>
+
+<script>
+document.getElementById("search").addEventListener("input",function(){
+ const value=this.value.trim().toLowerCase();
+ document.querySelectorAll("#players tr").forEach(row=>{
+  row.style.display=row.innerText.toLowerCase().includes(value)?"":"none";
+ });
+});
+</script>
+
 </body>
+  
 </html>
